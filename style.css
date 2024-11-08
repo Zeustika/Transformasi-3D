@@ -1,67 +1,76 @@
-/*(light mode) */
-body.light-mode {
-	        background-image: url('img/abu.JPG');
-}
-    canvas {
-        background-color: #ffffff;
-        border: 3px solid black;
-    }
-
-/*(night mode) */
-body.night-mode {
-		        background-image: url('img/nack.avif');
-}
-    canvas {
-        background-color: #ffffff;
-        border: 1px solid black;
-    }
-/* Tambahkan gaya tambahan untuk kontrol */
-#controls {
-    background-color: inherit;
-    padding: 10px;
-    border-radius: 5px;
-}
-        #controls {
-            display: flex;
-            flex-direction: column;
-            margin-left: 20px;
-        }
-        label {
-            margin-top: 10px;
-        }
-
-        body {
-            background: url('img/nack.avif');
-            background-color: black;;
-            background-size: 30%;
-            color: #fff;
-        }
-
+/* General Body Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #e0e0e0; /* Warna latar default */
+    align-items: flex-start; /* Align items at the start */
+    height: auto; /* Change to auto to accommodate content */
+    background-color: #e0e0e0; /* Default background color */
     transition: background-color 0.3s;
 }
 
-/* Control panel styles */
-#controls {
-    background-color: #ffffff; /* Light mode background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    margin-left: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+/* Light Mode Styles */
+body.light-mode {
+    background-image: url('img/abu.JPG');
 }
 
-/* Button styles with animation */
+body.light-mode #controls {
+    background-color: #ffffff; /* Light mode control background */
+    color: #333; /* Light mode text color */
+}
+
+body.light-mode button {
+    background-color: #0078d7; /* Button color in light mode */
+}
+
+body.light-mode button:hover {
+    background-color: #005ea0; /* Hover effect for button */
+}
+
+canvas {
+    background-color: #ffffff; /* Canvas background in light mode */
+    border: 3px solid black; /* Canvas border in light mode */
+}
+
+/* Night Mode Styles */
+body.night-mode {
+    background-image: url('img/nack.avif');
+    background-color: #1e1e1e; /* Background color in night mode */
+}
+
+body.night-mode #controls {
+    background-color: #333333; /* Control background in night mode */
+    color: #ffffff; /* Text color in night mode */
+}
+
+body.night-mode button {
+    background-color: #ff5722; /* Button color in night mode */
+}
+
+body.night-mode button:hover {
+    background-color: #e64a19; /* Hover effect for button in night mode */
+}
+
+body.night-mode label {
+    color: #f0f0f0; /* Label color in night mode */
+}
+
+/* Control Panel Styles */
+#controls {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-top: 100px;
+    border-radius: 10px;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0. 3s ease, transform 0.3s ease-in-out;
+}
+
+/* Button Styles */
 button {
-    background-color: #0078d7;
     color: #ffffff;
     border: none;
     padding: 10px 15px;
@@ -71,21 +80,14 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
-/* Hover effect with scale animation */
-button:hover {
-    background-color: #005ea0;
-    transform: scale(1.05); /* Slightly enlarge button */
-}
-
-/* Label style */
+/* Label Styles */
 label {
     margin-top: 10px;
     font-weight: bold;
-    color: #333;
     transition: color 0.3s ease;
 }
 
-/* Range input style */
+/* Range Input Styles */
 input[type="range"] {
     width: 100%;
     margin-top: 5px;
@@ -95,23 +97,33 @@ input[type="range"] {
     transition: background-color 0.3s ease;
 }
 
-/* Range input hover effect */
 input[type="range"]:hover {
-    background-color: #aaa;
+    background-color: #aaa; /* Hover effect for range input */
 }
 
-/* Canvas styles */
+/* Canvas Styles */
 canvas {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease-in-out;
 }
 
-/* Animate the controls on page load */
+/* Canvas Animation on Hover */
+canvas:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Animation when Clicked */
+button:active {
+    transform: scale(0.98); /* Slight shrink effect on click */
+}
+
+/* Animate the Controls on Page Load */
 @keyframes slideIn {
     0% {
         opacity: 0;
-        transform: translateY(150%);
+        transform: translateY(200%);
     }
     100% {
         opacity: 1;
@@ -121,37 +133,4 @@ canvas {
 
 #controls {
     animation: slideIn 0.5s ease-out;
-}
-
-/* Canvas animation on hover */
-canvas:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Button animation when clicked */
-button:active {
-    transform: scale(0.98); /* Slight shrink effect on click */
-}
-
-/* Night mode */
-body.night-mode {
-    background-color: #1e1e1e; /* Warna latar night mode */
-}
-
-body.night-mode #controls {
-    background-color: #333333; /* Latar kontrol night mode */
-    color: #ffffff;
-}
-
-body.night-mode button {
-    background-color: #ff5722;
-}
-
-body.night-mode button:hover {
-    background-color: #e64a19;
-}
-
-body.night-mode label {
-    color: #f0f0f0;
 }
